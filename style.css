@@ -1,0 +1,218 @@
+body {
+    background-image: linear-gradient(
+        to right top,
+        #1f0537,
+        #380c60,
+        #55108c,
+        #7413bb,
+        #9612eb
+    );
+
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.birthday-layout {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+
+/* CARD */
+
+.card {
+    position: relative;
+
+    width: 300px;
+    height: 425px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+
+/* INSIDE */
+
+.back {
+    position: absolute;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: white;
+
+    border: 4px solid #9612eb;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0px 0px 10px rgba(0, 0, 0, 0.3);
+
+    z-index: 1;
+}
+
+
+/* INSIDE IMAGE */
+
+.back img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* FRONT */
+
+.front {
+    position: absolute;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+
+    border: 4px solid #9612eb;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    background-color: #9612eb;
+
+    transform-origin: left center;
+
+    transform-style: preserve-3d;
+
+    transform: rotateY(0deg);
+
+    transition: transform 0.8s ease-in-out;
+
+    z-index: 2;
+
+    backface-visibility: hidden;
+}
+
+
+/* FRONT VIDEO */
+
+.front video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* OPEN CARD */
+
+.card.open .front {
+    transform: rotateY(-180deg);
+}
+
+
+/* Small instruction */
+
+.card::after {
+    content: "Tap to open";
+
+    position: absolute;
+
+    bottom: -45px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color:#e3af6d;
+
+    font-family: TT Marxiana Antigua;
+
+    font-size: 16px;
+
+    white-space: nowrap;
+}
+
+.audio-panel {
+    display: flex;
+    width: 280px;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+.music-button {
+    border: none;
+
+    background: white;
+
+    color: #7413bb;
+
+    padding: 12px 22px;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+    transition: 0.2s;
+}
+
+
+.music-button:hover {
+    transform: scale(1.05);
+}
+
+
+#youtubePlayer {
+    position: fixed;
+    top: 0;
+    left: -10000px;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#youtubePlayer iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 680px) {
+    .birthday-layout {
+        flex-direction: column;
+        gap: 64px;
+        padding: 24px 12px;
+    }
+
+    .audio-panel {
+        width: min(280px, calc(100vw - 40px));
+    }
+
+}
+
+

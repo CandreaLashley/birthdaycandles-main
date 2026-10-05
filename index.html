@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Mama!</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<main class="birthday-layout">
+  <div class="card" id="birthdaycard">
+    <div class="back">
+        <img src="inside_img_card.png" alt="Inside Image" class="inside-image">
+    </div>
+
+    <div class="front">
+        <video autoplay muted loop playsinline>
+            <source src="front_video_card.mp4" type="video/mp4">
+        </video>
+    </div>
+  </div>
+
+
+<aside class="audio-panel" aria-label="Birthday card music">
+
+    <button id="musicToggle" class="music-button" type="button">
+        🎵 Play/Pause Music
+    </button>
+
+    <audio id="birthdayAudio" src="happy_brithday_song.mp3" preload="auto" loop></audio>
+
+</aside>
+
+</main>
+  
+  <script src="script.js"></script>
+ 
+
+</body>
+</html>
